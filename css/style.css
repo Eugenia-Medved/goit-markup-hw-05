@@ -61,7 +61,7 @@ h3 {
   text-transform: uppercase;
 }
 
-.link {
+a {
   padding: 0;
   margin: 0;
 }
@@ -107,6 +107,7 @@ p {
   align-items: center;
   padding-top: 32px;
   padding-bottom: 32px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .box-advantages,
@@ -141,6 +142,8 @@ p {
   align-items: center;
   margin-right: 10px;
   fill: var(--primary-text-color);
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link:hover,
@@ -151,7 +154,8 @@ p {
   color: var(--accent-color);
 }
 
-.address-nav-link:hover .address-nav-icon {
+.address-nav-link:hover .address-nav-icon,
+.address-nav-link:focus .address-nav-icon {
   fill: var(--accent-color);
 }
 
@@ -252,6 +256,8 @@ p {
   color: var(--title-text-color);
   font-weight: 500;
   line-height: 1.2;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-nav-link + .address-nav-link {
@@ -264,6 +270,8 @@ p {
 
 .address-nav-link {
   color: var(--primary-text-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .section-title {
@@ -347,17 +355,24 @@ p {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icon {
   fill: #afb1b8;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.social-link:hover {
+.social-link:hover,
+.social-link:focus {
   background-color: var(--accent-color);
 }
 
-.social-link:hover .social-icon {
+.social-link:hover .social-icon,
+.social-link:focus .social-icon {
   fill: #ffffff;
 }
 
@@ -369,17 +384,24 @@ p {
   height: 90px;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icon-customers {
   fill: #afb1b8;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.list-icon-link:hover {
+.list-icon-link:hover,
+.list-icon-link:focus {
   border-color: var(--accent-color);
 }
 
-.list-icon-link:hover .social-icon-customers {
+.list-icon-link:hover .social-icon-customers,
+.list-icon-link:focus .social-icon-customers {
   fill: var(--accent-color);
 }
 
@@ -438,18 +460,18 @@ footer {
   height: 44px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-}
 
-/* .social-link-footer {
-  height: 20px;
-  width: 20px;
-} */
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 .social-icon-footer {
   fill: #ffffff;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.social-link-footer:hover {
+.social-link-footer:hover,
+.social-link-footer:focus {
   background-color: var(--accent-color);
 }
 
@@ -506,6 +528,8 @@ footer {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.64;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-portfolio.current,
@@ -520,6 +544,26 @@ footer {
   flex-wrap: wrap;
 }
 
+.portfolio-link {
+  line-height: 0;
+}
+
+.portfolio-card {
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+}
+
+.portfolio-link:hover .portfolio-card {
+  box-sizing: border-box;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    0px 1px 1px rgba(0, 0, 0, 0.12);
+}
+
+.portfolio-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
 .portfolio-item {
   width: calc((100% - 60px) / 3);
   margin-right: 30px;
@@ -532,6 +576,24 @@ footer {
 
 .portfolio-item:nth-last-child(-n + 3) {
   margin-bottom: 0;
+}
+
+.portfolio-text-about {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 63px 24px;
+  background-color: var(--accent-color);
+  color: var(--primary-white-color);
+  font-size: 18px;
+  line-height: 1.6;
+
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-link:hover .portfolio-text-about {
+  transform: translateY(0);
 }
 
 .portfolio-text {
@@ -549,12 +611,4 @@ footer {
   margin-top: 4px;
   font-size: 16px;
   line-height: 1.9;
-}
-
-.portfolio-text-about {
-  padding: 63px 24px;
-  background-color: var(--accent-color);
-  color: var(--primary-white-color);
-  font-size: 18px;
-  line-height: 1.6;
 }
